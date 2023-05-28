@@ -16,8 +16,8 @@ The aim of this WordPress specific fixers is to allow WordPress developers to st
 
 #### Available Fixers
 
-1. **Space Inside Parenthesis**: This fixer ensures that when defining functions, if/else blocks, or control structures which have parenthesis, a space after the starting parenthesis and before the ending parenthesis exists. Rule name: `WeDevs/space_inside_parenthesis`.
-2. **Blank Line After Class Opening**: PSR standards have the class opening brace on a new line, WordPress follows the same line standard. This ensures after the opening brace, one blank line exists (equals to two `\n`). Rule name: `WeDevs/blank_line_after_class_opening`.
+1. **Space Inside Parenthesis**: This fixer ensures that when defining functions, if/else blocks, or control structures which have parenthesis, a space after the starting parenthesis and before the ending parenthesis exists. Rule name: `AiArnob/space_inside_parenthesis`.
+2. **Blank Line After Class Opening**: PSR standards have the class opening brace on a new line, WordPress follows the same line standard. This ensures after the opening brace, one blank line exists (equals to two `\n`). Rule name: `AiArnob/blank_line_after_class_opening`.
 
 ## Installation
 PHP CS Fixer: custom fixers can be installed by running:
@@ -43,17 +43,17 @@ In your PHP CS Fixer configuration (`.php_cs` or `.php_cs.dist`) register fixers
  $config = new PhpCsFixer\Config();
  $config
 +    ->registerCustomFixers([
-+        new WeDevs\Fixer\SpaceInsideParenthesisFixer(),
-+        new WeDevs\Fixer\BlankLineAfterClassOpeningFixer()
++        new AiArnob\Fixer\SpaceInsideParenthesisFixer(),
++        new AiArnob\Fixer\BlankLineAfterClassOpeningFixer()
 +     ])
-+    ->setRules( WeDevs\Fixer\Fixer::rules() )
++    ->setRules( AiArnob\Fixer\Fixer::rules() )
      ->setFinder( $finder )
 ;
 
  return $config;
 ```
 
-The `WeDevs\Fixer\Fixer::rules()` function simplifies the usage of the WordPress specific rules. However, if you want more control and have different taste, you can copy/paste the rules from the `WeDevs\Fixer\Fixer` class to the `.php_cs` file if you want to.
+The `AiArnob\Fixer\Fixer::rules()` function simplifies the usage of the WordPress specific rules. However, if you want more control and have different taste, you can copy/paste the rules from the `AiArnob\Fixer\Fixer` class to the `.php_cs` file if you want to.
 
 ### Example File
 

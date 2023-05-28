@@ -10,12 +10,12 @@ $finder = PhpCsFixer\Finder::create()
 $config = new PhpCsFixer\Config();
 $config
     ->registerCustomFixers([
-        new WeDevs\Fixer\SpaceInsideParenthesisFixer(),
-        new WeDevs\Fixer\BlankLineAfterClassOpeningFixer()
+        new AiArnob\Fixer\SpaceInsideParenthesisFixer(),
+        new AiArnob\Fixer\BlankLineAfterClassOpeningFixer()
     ])
     ->setRiskyAllowed(true)
     ->setUsingCache(false)
-    ->setRules( WeDevs\Fixer\Fixer::rules() )
+    ->setRules( AiArnob\Fixer\Fixer::rules() )
     ->setFinder( $finder )
 ;
 

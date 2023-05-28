@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace WeDevs\Fixer;
+namespace AiArnob\Fixer;
 
 /**
  * The fixer utility class.
@@ -42,8 +42,8 @@ class Fixer
             'full_opening_tag' => true,
             'fully_qualified_strict_types' => true,
             'function_declaration' => true,
-            'WeDevs/space_inside_parenthesis' => true,
-            'WeDevs/blank_line_after_class_opening' => true,
+            'AiArnob/space_inside_parenthesis' => true,
+            'AiArnob/blank_line_after_class_opening' => true,
             'function_typehint_space' => true,
             'global_namespace_import' => ['import_classes' => true],
             'include' => true,

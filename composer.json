@@ -12,7 +12,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "WeDevs\\Fixer\\": "src"
+            "AiArnob\\Fixer\\": "src"
         }
     },
     "require": {
