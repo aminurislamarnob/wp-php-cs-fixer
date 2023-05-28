@@ -20,14 +20,36 @@ The aim of this WordPress specific fixers is to allow WordPress developers to st
 2. **Blank Line After Class Opening**: PSR standards have the class opening brace on a new line, WordPress follows the same line standard. This ensures after the opening brace, one blank line exists (equals to two `\n`). Rule name: `AiArnob/blank_line_after_class_opening`.
 
 ## Installation
-PHP CS Fixer: custom fixers can be installed by running:
+PHP CS Fixer: PHP CS fixers can be installed by running(as dev dependency):
+```bash
+composer require friendsofphp/php-cs-fixer
+```
+
+WP PHP CS Fixer: custom fixers can be installed by running:
 
 ```bash
 composer require --dev aminurislamarnob/wp-php-cs-fixer
 ```
 
+## Other Settings
+Add the below packages to composer.json file inside `"require-dev": {}`
+```bash
+"wp-coding-standards/wpcs": "dev-master",
+"phpcompatibility/php-compatibility": "*",
+"phpcompatibility/phpcompatibility-wp": "*",
+"dealerdirect/phpcodesniffer-composer-installer": "^0.7"
+``` 
+
+Add the below config to composer.json file inside `"config": {}`
+```bash
+"allow-plugins": {
+    "dealerdirect/phpcodesniffer-composer-installer": true
+}
+```
+***Finally you need to run the command `composer update` to install dependency packages.***
+
 ## Usage
-In your PHP CS Fixer configuration (`.php_cs` or `.php_cs.dist`) register fixers and use them:
+Create file (`.php-cs-fixer.php`) to your plugin directory and copy paste the below code to the file:
 
 ```diff
 <?php
@@ -55,8 +77,5 @@ $config
 return $config;
 ```
 
-### Example File
-
-The example [.php_cs.example](https://github.com/aminurislamarnob/wp-php-cs-fixer/blob/master/.php_cs.example) file should be a fine starting point for your plugins. Just drop the file into your plugin folder by renaming to `.php-cs-fixer.php` and you are good to go.
-
+### Fix by Run Command
 Upon configuring everything, run `php-cs-fixer fix` from the commandline.
