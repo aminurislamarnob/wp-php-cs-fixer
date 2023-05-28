@@ -1,6 +1,6 @@
 # PHP CS Fixer: WordPress fixers
 
-A set of custom fixers for [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer), specially for WordPress. This is the modified version of https://github.com/tareq1988/wp-php-cs-fixer which is made by Tareq Hasan, Founder & CTO of weDevs.
+A set of custom fixers for [PHP CS Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer), specially for WordPress. This is the modified version of [tareq1988/wp-php-cs-fixer](https://github.com/tareq1988/wp-php-cs-fixer) which is made by Tareq Hasan, Founder & CTO of weDevs.
 
 ### What is php-cs-fixer?
 
@@ -30,30 +30,30 @@ composer require --dev aminurislamarnob/wp-php-cs-fixer
 In your PHP CS Fixer configuration (`.php_cs` or `.php_cs.dist`) register fixers and use them:
 
 ```diff
- <?php
- // add the custom fixers
-+ require_once __DIR__ . '/vendor/aminurislamarnob/wp-php-cs-fixer/loader.php';
+<?php
+// add the custom fixers
+require_once __DIR__ . '/vendor/aminurislamarnob/wp-php-cs-fixer/loader.php';
 
- $finder = PhpCsFixer\Finder::create()
+$finder = PhpCsFixer\Finder::create()
     ->exclude('node_modules')
     ->exclude('vendors')
     ->in( __DIR__ )
- ;
-
- $config = new PhpCsFixer\Config();
- $config
-+    ->registerCustomFixers([
-+        new AiArnob\Fixer\SpaceInsideParenthesisFixer(),
-+        new AiArnob\Fixer\BlankLineAfterClassOpeningFixer()
-+     ])
-+    ->setRules( AiArnob\Fixer\Fixer::rules() )
-     ->setFinder( $finder )
 ;
 
- return $config;
-```
+$config = new PhpCsFixer\Config();
+$config
+    ->registerCustomFixers([
+        new AiArnob\Fixer\SpaceInsideParenthesisFixer(),
+        new AiArnob\Fixer\BlankLineAfterClassOpeningFixer()
+    ])
+    ->setRiskyAllowed(true)
+    ->setUsingCache(false)
+    ->setRules( AiArnob\Fixer\Fixer::rules() )
+    ->setFinder( $finder )
+;
 
-The `AiArnob\Fixer\Fixer::rules()` function simplifies the usage of the WordPress specific rules. However, if you want more control and have different taste, you can copy/paste the rules from the `AiArnob\Fixer\Fixer` class to the `.php_cs` file if you want to.
+return $config;
+```
 
 ### Example File
 
